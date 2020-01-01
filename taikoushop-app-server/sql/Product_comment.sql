@@ -10,7 +10,7 @@ CREATE TABLE "Product_comment"
   "user_name"  VARCHAR2(36)  NULL,
   "created_at" TIMESTAMP     NULL,
   "created_by" VARCHAR2(36)  NULL,
-  "sort"       NUMBER DEFAULT generated always as identity NOT NULL,
+  "sort"       NUMBER  generated always as identity NOT NULL,
   PRIMARY KEY ("product_id", "store_id", "user_id", "sort")
 )
   NOCOMPRESS

@@ -3,7 +3,7 @@ DROP TABLE "Store_comment";
 CREATE TABLE "Store_comment"
 (
   "store_id"   VARCHAR2(36)  NOT NULL,
-  "sort"       NUMBER DEFAULT generated always as identity NOT NULL,
+  "sort"       NUMBER  generated always as identity NOT NULL,
   "star"       NUMBER        NULL,
   "comment"    VARCHAR2(200) NULL,
   "created_by" VARCHAR2(36)  NULL,
