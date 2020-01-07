@@ -29,6 +29,7 @@ public class GlobalExceptionHandler {
         return null;
     }
 
+
     @ExceptionHandler(DataNotFoundException.class)
     @ResponseBody
     public ResponseEntity handleDataNotFoundException(){

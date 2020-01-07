@@ -2,12 +2,12 @@ package com.example.repository.jpa;
 
 import javax.persistence.criteria.*;
 
-public class NumberSpecification<T> extends AbstractSpecification <T , Number> {
-    public NumberSpecification(String attrName, Number attrValue, int logicalOperator) {
+public class NumberSpecification<T> extends AbstractSpecification <T , Integer> {
+    public NumberSpecification(String attrName, Integer attrValue, int logicalOperator) {
         super(attrName, attrValue, logicalOperator);
     }
 
-    public NumberSpecification(String attrName, int logicalOperator, Number... attrValues) {
+    public NumberSpecification(String attrName, int logicalOperator, Integer... attrValues) {
         super(attrName, logicalOperator, attrValues);
     }
 

@@ -1,6 +1,6 @@
 DROP TABLE "Product_detail";
 
-CREATE TABLE "Product_detail"
+CREATE TABLE Product_detail
 (
   "product_id"          VARCHAR2(36)   NOT NULL,
   "spec_type"           VARCHAR2(10)   NOT NULL,
@@ -19,3 +19,5 @@ CREATE TABLE "Product_detail"
 )
   NOCOMPRESS
   NOPARALLEL;
+
+select * from Product_detail;

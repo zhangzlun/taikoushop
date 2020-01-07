@@ -2,12 +2,9 @@ package com.example.repository.jpa;
 
 import org.springframework.data.jpa.domain.Specification;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 
-public class BetweenSpecification<T , ATTR extends Comparable<ATTR>> implements Specification<T> {
+public class BetweenSpecification<T , ATTR extends Comparable<ATTR> > implements Specification<T> {
 
     private String attrName;
     private ATTR lowerBound, upperBound;
@@ -19,18 +16,19 @@ public class BetweenSpecification<T , ATTR extends Comparable<ATTR>> implements 
         this.upperBound = upperBound;
     }
 
-    @Override
-    public Specification<T> and(Specification<T> other) {
-        return null;
-    }
+//    @Override
+//    public Specification<T> and(Specification<T> other) {
+//        return null;
+//    }
+//
+//    @Override
+//    public Specification<T> or(Specification<T> other) {
+//        return null;
+//    }
 
     @Override
-    public Specification<T> or(Specification<T> other) {
-        return null;
-    }
-
-    @Override
-    public Predicate toPredicate(Root<T> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-        return null;
+    public Predicate toPredicate(Root<T> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
+        Path<ATTR> path = SpecificationHelper.getPath(root, attrName);
+        return cb.between(path, lowerBound, upperBound);
     }
 }

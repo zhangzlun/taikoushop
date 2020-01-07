@@ -1,0 +1,33 @@
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+#          lower-case-service-id: true
+#          enabled: true
+      routes:
+#        - id: eureka-server
+#          uri: lb://eureka-server
+#          order: 8080
+#          predicates:
+#          - Path=/api-eureka/**
+        - id: eureka-client-service
+          uri: lb://eureka-client-service
+          predicates:
+          - Path=/client/**
+        - id: PRODUCT-SERVICE
+          uri: lb://PRODUCT-SERVICE
+          predicates:
+          - Path=/product/**
+server:
+  port: 8081
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
